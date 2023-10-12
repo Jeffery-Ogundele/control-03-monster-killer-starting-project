@@ -8,6 +8,14 @@ const MONSTER_ATTACK = 30;
 const STRONG_ATTACK_VALUE = 30;
 const HEAL_VALUE = 25;
 adjustHealthBars(chosenMaxLife);
+
+
+function reset() {
+    currentMonsterLife = chosenMaxLife;
+    currentPlayerLife = chosenMaxLife;
+    resetGame(chosenMaxLife);
+}
+
 function endRound() {
   const initialPlayerHealth = currentPlayerLife;
   const playerDamage = dealPlayerDamage(MONSTER_ATTACK);
@@ -26,6 +34,10 @@ function endRound() {
     alert("You Lost!");
   } else if (currentMonsterLife <= 0 && currentPlayerLife <= 0) {
     alert("Its a draw!");
+  }
+
+  if (currentMonsterLife <= 0 || currentPlayerLife <= 0) {
+    reset();
   }
 }
 
