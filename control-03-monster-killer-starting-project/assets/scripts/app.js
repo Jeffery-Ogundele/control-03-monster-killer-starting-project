@@ -14,6 +14,8 @@ const ATTACK_VALUE = 10;
 const MONSTER_ATTACK = 30;
 const STRONG_ATTACK_VALUE = 30;
 const HEAL_VALUE = 25;
+const MODE_ATTACK = 'ATTACK'
+const MODE_STRONG_ATTACK = 'STRONG ATTACK'
 adjustHealthBars(chosenMaxLife);
 
 function reset() {
@@ -50,9 +52,9 @@ function endRound() {
 function resultCondition(attackHits) {
   //I created this function and did the necessary before he discussed it :)
   let maxDamge;
-  if (attackHits === "ATTACK") {
+  if (attackHits === MODE_ATTACK) {
     maxDamge = ATTACK_VALUE;
-  } else if (attackHits === "STRONG ATTACK") {
+  } else if (attackHits === MODE_STRONG_ATTACK) {
     maxDamge = STRONG_ATTACK_VALUE;
   }
 
@@ -62,11 +64,11 @@ function resultCondition(attackHits) {
 }
 
 function attackHandler() {
-  resultCondition("ATTACK");
+  resultCondition(MODE_ATTACK);
 }
 
 function strongAttackHandler() {
-  resultCondition("STRONG ATTACK");
+  resultCondition(MODE_STRONG_ATTACK);
 }
 
 function healPlayerHandler() {
