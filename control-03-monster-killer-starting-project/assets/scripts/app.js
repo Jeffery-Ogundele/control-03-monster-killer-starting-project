@@ -182,6 +182,13 @@ function healPlayerHandler() {
   endRound();
 }
 function logEventHandler() {
+  for (let i = 0; i < 3; i++) {
+    console.log('Hello World')
+  }
+
+  // for(let i = 10; i >= 0; i--) {
+  //   console.log(i)
+  // }
   console.log(battleLog);
 }
 attackBtn.addEventListener("click", attackHandler);
