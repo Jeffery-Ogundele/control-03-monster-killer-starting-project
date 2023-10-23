@@ -189,8 +189,17 @@ function logEventHandler() {
   // for(let i = 10; i >= 0; i--) {
   //   console.log(i)
   // }
-  console.log(battleLog);
+  //  for(let i = 0; i < battleLog.length; i++) {
+  //   console.log(battleLog[i]);
+  //}
+  let incr = 0;
+for (const log of battleLog ) {
+  console.log(log)
+  incr++;
+  console.log(incr) 
 }
+   }
+
 attackBtn.addEventListener("click", attackHandler);
 strongAttackBtn.addEventListener("click", strongAttackHandler);
 healBtn.addEventListener("click", healPlayerHandler);
