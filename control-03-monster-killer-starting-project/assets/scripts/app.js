@@ -183,7 +183,7 @@ function healPlayerHandler() {
 }
 function logEventHandler() {
   for (let i = 0; i < 3; i++) {
-    console.log('Hello World')
+    console.log('Hello World');
   }
 
   // for(let i = 10; i >= 0; i--) {
@@ -194,9 +194,13 @@ function logEventHandler() {
   //}
   let incr = 0;
 for (const log of battleLog ) {
-  console.log(log)
-  incr++;
-  console.log(incr) 
+  incr++
+  console.log(`#${incr}`) 
+  for (const key in log) {
+    console.log(`${key} => ${log[key]}`)
+      
+  }
+
 }
    }
 
