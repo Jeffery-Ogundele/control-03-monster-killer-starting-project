@@ -23,6 +23,8 @@ const LOG_PLAYER_STRONG_ATTACK = "PLAYER_STRONG ATTACK";
 const LOG_PLAYER_HEAL = "PLAYER_HEAL";
 const LOG_MONSTER_ATTACK = "MONSTER_ATTACK";
 const LOG_GAME_OVER = "GAME_OVER";
+let lastLoggedEntry;
+
 
 adjustHealthBars(chosenMaxLife);
 
@@ -200,13 +202,15 @@ function logEventHandler() {
   //}
   let incr = 0;
 for (const log of battleLog ) {
-  incr++
-  console.log(`#${incr}`) ;
-  for (const key in log) {
-    console.log(`${key} => ${log[key]}`)
-      
+  if((!lastLoggedEntry && lastLoggedEntry !== 0) || lastLoggedEntry < incr) {
+    console.log(`#${incr}`) ;
+    for (const key in log) {
+      console.log(`${key} => ${log[key]}`)
   }
-
+  lastLoggedEntry = incr;
+  break;
+  }
+  incr++
 }
    }
 
@@ -214,3 +218,4 @@ attackBtn.addEventListener("click", attackHandler);
 strongAttackBtn.addEventListener("click", strongAttackHandler);
 healBtn.addEventListener("click", healPlayerHandler);
 logBtn.addEventListener("click", logEventHandler);
+ 
