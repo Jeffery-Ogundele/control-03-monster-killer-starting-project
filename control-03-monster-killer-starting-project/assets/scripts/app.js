@@ -188,8 +188,14 @@ function logEventHandler() {
   //   console.log('Hello World');
   // }
   let j = 3;
-  do  {
-    console.log(j)
+  outerWhile :do  {
+    console.log('outer',j)
+   innerFor : for (k = 0; k < 5; k++) {
+    if(k === 3) {
+      break outerWhile;
+    }
+      console.log('inner',k)
+    }
     j++;
   }
   while (j < 3) 
