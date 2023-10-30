@@ -34,7 +34,7 @@ function getMaxValue() {
  } catch (error) {
   console.log(error);
   chosenMaxLife = 100;
-  alert ('You entered the wrong value, default value of 100 was used.')
+  alert ('You entered the wrong value, default value of 100 was used')
  }
 
  
