@@ -1,11 +1,4 @@
-const enteredValue = prompt(
-  "Choose the maximum life for you and the monster",
-  "100"
-);
-let chosenMaxLife = parseInt(enteredValue);
-if (isNaN(chosenMaxLife) || chosenMaxLife <= 0) {
-  chosenMaxLife = 100;
-}
+let chosenMaxLife = getMaxValue();
 let currentMonsterLife = chosenMaxLife;
 let currentPlayerLife = chosenMaxLife;
 let hasBonusHealth = true;
@@ -25,6 +18,18 @@ const LOG_MONSTER_ATTACK = "MONSTER_ATTACK";
 const LOG_GAME_OVER = "GAME_OVER";
 let lastLoggedEntry;
 
+function getMaxValue() {
+  const enteredValue = prompt(
+    "Choose the maximum life for you and the monster",
+    "100"
+  );
+  const parsedValue = parseInt(enteredValue);
+  if (isNaN(parsedValue) || parsedValue <= 0) {
+     throw {message:'Invalid user input, not a number'}
+  }
+  return parsedValue;
+ }
+  
 
 adjustHealthBars(chosenMaxLife);
 
