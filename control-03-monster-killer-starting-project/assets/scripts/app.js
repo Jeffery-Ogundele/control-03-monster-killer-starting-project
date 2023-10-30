@@ -1,4 +1,4 @@
-let chosenMaxLife = getMaxValue();
+let chosenMaxLife;
 let currentMonsterLife = chosenMaxLife;
 let currentPlayerLife = chosenMaxLife;
 let hasBonusHealth = true;
@@ -29,7 +29,15 @@ function getMaxValue() {
   }
   return parsedValue;
  }
-  
+ try {
+  chosenMaxLife = getMaxValue();
+ } catch (error) {
+  console.log(error);
+  chosenMaxLife = 100;
+  alert ('You entered the wrong value, default value of 100 was used.')
+ }
+
+ 
 
 adjustHealthBars(chosenMaxLife);
 
